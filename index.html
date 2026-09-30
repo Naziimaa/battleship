@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocean Legends — Морской бой</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Морской фон с волнами -->
+  <div class="sea">
+    <i class="wave w1"></i>
+    <i class="wave w2"></i>
+    <i class="wave w3"></i>
+  </div>
+
+  <!-- Кнопка звука -->
+  <button id="snd" class="icon-btn" title="Включить/выключить звук">🔊</button>
+
+  <main>
+    <!-- Экран 1: Выбор режима -->
+    <section id="menu" class="screen active glass">
+      <h1>Ocean Legends</h1>
+      <p class="sub">Выберите режим игры</p>
+      <div class="modes">
+        <button class="mode-card" data-mode="solo">
+          <span class="ico">🚢</span>
+          <b>Играть в одиночку</b>
+          <small>Против умного компьютера</small>
+        </button>
+        <button class="mode-card alt" data-mode="pvp">
+          <span class="ico">⚓</span>
+          <b>Играть с другом</b>
+          <small>Вдвоём на одном устройстве</small>
+        </button>
+      </div>
+      <p class="hint">Состав флота: 1 трёхпалубный, 2 двухпалубных, 2 однопалубных. Корабли не должны касаться друг друга, даже углами.</p>
+    </section>
+
+    <!-- Экран 2: Расстановка флота -->
+    <section id="place" class="screen glass">
+      <p class="sub">Расстановка флота</p>
+      <h2 id="placeTitle"></h2>
+      <div class="row">
+        <div id="pb" class="board"></div>
+        <div class="side">
+          <p class="hint">Выберите корабль, наведите на поле и кликните. Повторный клик — убрать корабль. Поворот: кнопка или клавиша R.</p>
+          <div id="tray" class="tray"></div>
+          <button id="rot" class="btn">🔄 Повернуть: горизонтально</button>
+          <button id="auto" class="btn">🎲 Авто-флот</button>
+          <button id="reset" class="btn ghost">🗑 Сбросить</button>
+          <button id="back" class="btn ghost">← Сменить режим</button>
+          <button id="ready" class="btn big" disabled>Готово</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 3: Бой -->
+    <section id="battle" class="screen glass">
+      <h2 id="turn"></h2>
+      <p id="msg" class="msg"></p>
+      <div class="row">
+        <div class="col">
+          <h3>Воды противника</h3>
+          <div id="eb" class="board target"></div>
+        </div>
+        <div class="col small">
+          <h3>Ваш флот</h3>
+          <div id="ob" class="board"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экран 4: Смена хода (PvP) -->
+    <section id="pass" class="screen fog">
+      <svg class="wheel" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#e9c46a" stroke-width="5" stroke-linecap="round">
+          <circle cx="50" cy="50" r="28"/>
+          <circle cx="50" cy="50" r="9"/>
+          <path d="M50 8v83M8 50h83M20 20l60 60M80 20L20 80"/>
+        </g>
+        <g fill="#e9c46a">
+          <circle cx="50" cy="7" r="6"/>
+          <circle cx="50" cy="93" r="6"/>
+          <circle cx="7" cy="50" r="6"/>
+          <circle cx="93" cy="50" r="6"/>
+          <circle cx="20" cy="20" r="5"/>
+          <circle cx="80" cy="80" r="5"/>
+          <circle cx="80" cy="20" r="5"/>
+          <circle cx="20" cy="80" r="5"/>
+        </g>
+      </svg>
+      <h2>Передача штурвала</h2>
+      <p id="passTxt" class="big-txt"></p>
+      <p id="passSub" class="hint"></p>
+      <button id="passBtn" class="btn big">Я готов к бою!</button>
+    </section>
+
+    <!-- Экран 5: Победа / Конец игры -->
+    <section id="win" class="screen glass">
+      <div class="trophy">🏆</div>
+      <h2 id="winTxt"></h2>
+      <button id="again" class="btn big">В главное меню</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
